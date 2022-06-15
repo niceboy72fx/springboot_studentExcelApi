@@ -36,30 +36,31 @@ public class studentServices {
                 Row excelRow = firstSheet.getRow(i);
                 Student student = new Student();
 
-                student.setStt(Long.valueOf(String.valueOf(excelRow.getCell(0))));
+                student.setStt(Long.valueOf(fmt.formatCellValue(excelRow.getCell(0),evaluator)));
                 student.setSchool(String.valueOf(excelRow.getCell(1)));
-                student.setIdStudent(String.valueOf(excelRow.getCell(2)));
-                student.setGrade(String.valueOf(excelRow.getCell(3)));
-                student.setName(String.valueOf(excelRow.getCell(4)));
+                student.setAddress(String.valueOf(excelRow.getCell(2)));
+                student.setIdStudent(String.valueOf(excelRow.getCell(3)));
+                student.setGrade(String.valueOf(excelRow.getCell(4)));
+                student.setName(String.valueOf(excelRow.getCell(5)));
                 SimpleDateFormat getDate = new SimpleDateFormat("dd/MM/yyyy");
-                Date dateBirth = getDate.parse(excelRow.getCell(5) + "/" + excelRow.getCell(6) + "/" + excelRow.getCell(7));
+                Date dateBirth = getDate.parse(excelRow.getCell(6) + "/" + excelRow.getCell(7) + "/" + excelRow.getCell(8));
                 student.setBirthDate(dateBirth);
-                student.setGender(String.valueOf(excelRow.getCell(8)));
-                student.setProvince(fmt.formatCellValue(excelRow.getCell(9)));
-                student.setDan_toc(fmt.formatCellValue(excelRow.getCell(10)));
-                student.setAddress_live(fmt.formatCellValue(excelRow.getCell(11)));
-                student.setPhone_num(fmt.formatCellValue(excelRow.getCell(12)));
+                student.setGender(String.valueOf(excelRow.getCell(9)));
+                student.setProvince(fmt.formatCellValue(excelRow.getCell(10)));
+                student.setDan_toc(fmt.formatCellValue(excelRow.getCell(11)));
+                student.setAddress_live(fmt.formatCellValue(excelRow.getCell(12)));
+                student.setPhone_num(fmt.formatCellValue(excelRow.getCell(13)));
 
-                student.setClass1(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(13),evaluator)));
-                student.setClass2(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(14),evaluator)));
-                student.setClass3(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(15),evaluator)));
-                student.setClass4(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(16),evaluator)));
-                student.setClass5(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(17),evaluator)));
+                student.setClass1(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(14),evaluator)));
+                student.setClass2(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(15),evaluator)));
+                student.setClass3(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(16),evaluator)));
+                student.setClass4(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(17),evaluator)));
+                student.setClass5(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(18),evaluator)));
 
-                student.setTotal5years(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(18),evaluator)));
-                student.setPriorityPoint(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(19),evaluator)));
-                student.setTotalPoint(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(20),evaluator)));
-                student.setNote(fmt.formatCellValue(excelRow.getCell(21)));
+                student.setTotal5years(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(19),evaluator)));
+                student.setPriorityPoint(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(20),evaluator)));
+                student.setTotalPoint(Float.parseFloat(fmt.formatCellValue(excelRow.getCell(21),evaluator)));
+                student.setWNote(fmt.formatCellValue(excelRow.getCell(22)));
 
                 studentRespo.save(student);
             }

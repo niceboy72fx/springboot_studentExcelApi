@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.Student.studentRespositories.studentRespositories;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class studentController {
 
      @Autowired
      private studentRespositories studentRespo;
+     @Autowired
      private studentServices services;
 
      @GetMapping
@@ -34,7 +36,7 @@ public class studentController {
      }
 
      @PostMapping("/import")
-     public void  postStudent(@RequestParam("excel")  MultipartFile excel) throws ParseException {
+     public void  postStudent(@RequestParam("File")  MultipartFile excel ) throws ParseException, IOException {
               services.addValuetoVariable(excel);
      }
 }
